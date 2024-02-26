@@ -63,7 +63,7 @@ public class ProductService {
     }
 
     public Product getProductById(Long id){
-        List<Product> productList = productDAO.getAllProducts();
+        productList = productDAO.getAllProducts();
         for(int i=0; i < productList.size(); i++){
             Product currentProduct = productList.get(i);
             if(currentProduct.getProductID() == id){
@@ -76,7 +76,7 @@ public class ProductService {
     }
 
     public void deleteProductByID(Long id){
-        List<Product> productList = productDAO.getAllProducts();
+        productList = productDAO.getAllProducts();
         for(int i=0; i < productList.size(); i++){
             Product currentProduct = productList.get(i);
             if(currentProduct.getProductID() == id) {
