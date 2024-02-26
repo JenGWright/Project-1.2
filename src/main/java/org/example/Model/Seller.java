@@ -33,4 +33,10 @@ public class Seller {
         return Objects.hash(name);
     }
 
+    @Override
+    public String toString() {
+        return "Seller{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

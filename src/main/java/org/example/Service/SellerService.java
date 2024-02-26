@@ -21,7 +21,7 @@ public class SellerService {
     }
 
      public List<Seller>getSellerList(){
-        List<Seller> sellerList = sellerDAO.getSellerList();
+        sellerList = sellerDAO.getSellerList();
         return sellerList;
      }
      public void saveSeller(Seller newSeller){
@@ -54,4 +54,3 @@ public class SellerService {
 
 
 }
-

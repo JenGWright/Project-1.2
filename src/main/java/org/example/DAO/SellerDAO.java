@@ -53,13 +53,13 @@ public class SellerDAO {
             }else {
                 return null;
             }
-            }catch (SQLException e){
-                e.printStackTrace();
-            }
-            return null;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
 
     }
 
+
+
 }
-
-

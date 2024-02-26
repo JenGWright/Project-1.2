@@ -21,19 +21,21 @@ public class ProductController {
     public ProductController(SellerService sellerService, ProductService productService){
         this.sellerService = sellerService;
         this.productService = productService;
+        productService.sellerService = sellerService;
     }
-    List<Product>getproductList = new ArrayList<>();
+    List<Product>productList = new ArrayList<>();
+    List<Seller>sellerList = new ArrayList<>();
 
     public Javalin getAPI(){
         Javalin api = Javalin.create();
 
         api.get("health", context -> {context.result("Server is UP");});
         api.get("seller", context -> {
-            List<Seller> sellerList = sellerService.getSellerList();
+            sellerList = sellerService.getSellerList();
             context.json(sellerList);
         });
         api.get("product", context -> {
-            List<Product> productList = productService.getAllProducts();
+            productList = productService.getAllProducts();
             context.json(productList);
         });
         api.post("seller", context -> {

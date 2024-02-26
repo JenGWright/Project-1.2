@@ -15,24 +15,25 @@ public class ProductService {
     SellerDAO sellerDAO;
     ProductDAO productDAO;
 
+
     //dependency injection-included SellerService inside of product service and scoped it to the entire class line 13
 //    SellerService sellerService;
  //   List<Product> productList;
 
-    public ProductService(SellerDAO sellerDOA, ProductDAO productDAO){
-        this.sellerDAO = sellerDOA;
+    public ProductService(SellerDAO sellerDAO, ProductDAO productDAO){
+        this.sellerDAO = sellerDAO;
         this.productDAO = productDAO;
     }
 
-    SellerService sellerService;
+    public SellerService sellerService;
     List<Product>productList;
 
-    public ProductService(SellerService sellerService){
+    public ProductService (SellerService sellerService){
         this.sellerService = sellerService;
         productList = new ArrayList<>();
     }
     public List<Product>getAllProducts(){
-        List<Product> productList = productDAO.getAllProducts();
+        productList = productDAO.getAllProducts();
         System.out.println(productList);
         return productList;
     }
@@ -49,9 +50,9 @@ public class ProductService {
 
         String sellerName = p.getSellerName();
 
-//        if(!sellerService.sellerExists(sellerName)){
- //           throw new ProductException("Seller " + sellerName + " not found");
- //       }
+       if(!sellerService.sellerExists(sellerName)){
+          throw new ProductException("Seller " + sellerName + " not found");
+      }
 
         long id = (long) (Math.random() * Long.MAX_VALUE);
         p.setProductID(id);

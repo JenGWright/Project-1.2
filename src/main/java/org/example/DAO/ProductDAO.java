@@ -77,7 +77,7 @@ public class ProductDAO {
             ps.setDouble(3, updatedProduct.getProductPrice());
             ps.setLong(4, updatedProduct.getProductID());
             System.out.println(updatedProduct.getProductName() + " " + updatedProduct.getSellerName() + " " + updatedProduct.getProductPrice()
-            + " " + updatedProduct.getProductID());
+                    + " " + updatedProduct.getProductID());
             ps.executeUpdate();
         }catch (SQLException e){
             e.printStackTrace();
@@ -86,4 +86,3 @@ public class ProductDAO {
 
 
 }
-
